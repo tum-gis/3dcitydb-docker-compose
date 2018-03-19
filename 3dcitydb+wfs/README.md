@@ -38,9 +38,9 @@ Use [`docker-compose up`](https://docs.docker.com/compose/reference/up/) to run 
 The services should now start. Depending on your machine, this is going to take 30-60s. When all services have started successfully they are reachable here, according to the example file.  
 * Form `localhost`:  
   3DCityDB: localhost  
-  WFS web interface: http://localhost:8080/3dcitydb-wfs/wfs-client  
-  WFS OGC WFS interface: http://localhost:8080/3dcitydb-wfs/wfs?  
+  WFS web interface: http://localhost:8080/citydb-wfs/wfsclient  
+  WFS OGC WFS interface: http://localhost:8080/citydb-wfs/wfs?  
 * For a host named `myExampleDockerHost.de`:  
   3DCityDB: myExampleDockerHost.de  
-  WFS web interface: http://myExampleDockerHost.de:8080/3dcitydb-wfs/wfs-client  
-  WFS OGC WFS interface: http://myExampleDockerHost.de:8080/3dcitydb-wfs/wfs?  
+  WFS web interface: http://myExampleDockerHost.de:8080/citydb-wfs/wfsclient  
+  WFS OGC WFS interface: http://myExampleDockerHost.de:8080/citydb-wfs/wfs?  
