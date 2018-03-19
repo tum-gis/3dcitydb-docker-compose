@@ -1,4 +1,8 @@
-# Compose 3DCityDB, 3DCityDB WFS and 3DCityDB Web-Map-Client ##################
+# Compose 3DCityDB, 3DCityDB WFS  #############################################
+###############################################################################
+#   Note: 
+#   Adapt the 3DCityDB database credentials both for the DB and the WFS
+#   service accordingly. Otherwise, you might break the container linking.
 ###############################################################################
 version: "2.0"
 services:
@@ -32,12 +36,3 @@ services:
       - "CITYDB_CONNECTION_SID=citydb"
       - "CITYDB_CONNECTION_USER=postgres"
       - "CITYDB_CONNECTION_PASSWORD=postgres"
-
-# 3DCityDB Web-Map ############################################################
-  citydb-web-map:
-    image: tumgis/3dcitydb-web-map
-    ports:
-      - 80:8000
-    volumes:
-      - /var/docker/my-test-data:/var/www/data
-      # on windows e.g.: d:/docker/data:/var/www/data
