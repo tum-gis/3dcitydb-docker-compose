@@ -1,0 +1,37 @@
+# Compose 3DCityDB, 3DCityDB WFS  #############################################
+###############################################################################
+#   Note: 
+#   Watch out to change the database credentials of the 3DCityDB and the WFS
+#		synchronously. Otherwise, you might break the container linking.
+###############################################################################
+version: "2.0"
+services:
+# 3DCityDB ####################################################################
+  citydb:
+    image: tumgis/3dcitydb-postgis
+    ports:
+      - 5432:5432
+    environment:
+      - "CITYDBNAME=citydb"
+      - "SRID=31468"
+      - "SRSNAME=urn:adv:crs:DE_DHDN_3GK4*DE_DHN92_NH"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      
+# 3DCityDB WFS ################################################################
+  citydb-wfs:
+    image: tumgis/3dcitydb-wfs
+    ports:
+      - 8080:8080
+    links: 
+      # <3DCityDB-container-name>:<3DCityDB-container-hostname>
+      - citydb:my-citydb
+    depends_on:
+      - citydb
+    environment:
+      - "CITYDB_CONNECTION_SERVER=my-citydb"
+      - "CITYDB_CONNECTION_PORT=5432"
+      # Use the <3DCityDB-container-hostname> here!
+      - "CITYDB_CONNECTION_SID=citydb"
+      - "CITYDB_CONNECTION_USER=postgres"
+      - "CITYDB_CONNECTION_PASSWORD=postgres"

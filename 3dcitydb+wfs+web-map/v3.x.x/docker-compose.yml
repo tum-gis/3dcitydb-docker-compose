@@ -1,9 +1,8 @@
 # Compose 3DCityDB, 3DCityDB WFS and 3DCityDB Web-Map-Client ##################
 ###############################################################################
 #   Note: 
-#   Adapt the 3DCityDB database credentials both for the DB and the WFS
-#   service (command and environment!) accordingly. 
-#   Otherwise, you might break the container linking.
+#   Watch out to change the database credentials of the 3DCityDB and the WFS
+#		synchronously. Otherwise, you might break the container linking.
 ###############################################################################
 version: "2.0"
 services:
@@ -29,7 +28,6 @@ services:
       - citydb:my-citydb
     depends_on:
       - citydb
-    command: ["wait-for-psql.sh","60","my-citydb","5432","postgres","postgres","citydb-wfs.sh","catalina.sh","run"]
     environment:
       - "CITYDB_CONNECTION_SERVER=my-citydb"
       - "CITYDB_CONNECTION_PORT=5432"

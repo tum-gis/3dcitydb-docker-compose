@@ -1,8 +1,8 @@
 # Compose 3DCityDB, 3DCityDB WFS  #############################################
 ###############################################################################
 #   Note: 
-#   Adapt the 3DCityDB database credentials both for the DB and the WFS
-#   service accordingly. Otherwise, you might break the container linking.
+#   Watch out to change the database credentials of the 3DCityDB and the WFS
+#		synchronously. Otherwise, you might break the container linking.
 ###############################################################################
 version: "2.0"
 services:
