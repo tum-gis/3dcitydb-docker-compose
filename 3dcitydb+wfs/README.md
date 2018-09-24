@@ -19,18 +19,18 @@ Download the `docker-compose.yml` from this repo using...
   
     ```bash
     git clone https://github.com/tum-gis/3dcitydb-docker-compose
-    cd 3dcitydb-docker-compose/3dcitydb+wfs
+    cd 3dcitydb-docker-compose/3dcitydb+wfs/v4.x.x
     ```
 * ...or `wget`:
 
    ```bash
-   wget https://raw.githubusercontent.com/tum-gis/3dcitydb-docker-compose/master/3dcitydb%2Bwfs/docker-compose.yml
+   wget https://github.com/tum-gis/3dcitydb-docker-compose/blob/master/3dcitydb%2Bwfs/v4.x.x/docker-compose.yml
    ```
 
 * ...or `curl`:
 
     ```bash
-    curl https://raw.githubusercontent.com/tum-gis/3dcitydb-docker-compose/master/3dcitydb%2Bwfs/docker-compose.yml -o docker-compose.yml
+    curl https://raw.githubusercontent.com/tum-gis/3dcitydb-docker-compose/master/3dcitydb%2Bwfs/v4.x.x/docker-compose.yml -o docker-compose.yml
     ```
 
 ## Adapt the service configuration file
