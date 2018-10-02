@@ -14,6 +14,7 @@ Navigate to folder named according to the service configuration you are looking 
 
 * **Full stack:** [3dcitydb+wfs+web-map](3dcitydb+wfs+web-map): 3DCityDB instance with linked WFS and Web-Map Client
 * **WFS stack:**  [3dcitydb+wfs](3dcitydb+wfs): 3DCityDB instance with linked WFS
+* **Terrain stack**: [3dcitydb-web-map+cesium-terrain-server](web-map+cesium-terrain-server): 3DCityDB Web-Map Client capable of hosting Cesium Terrain tileset
 
 The default workflow with [`Docker-compose`](https://docs.docker.com/compose/) is to download the `docker-compose.yml` configuration file from this repo, adapt the service configuration in the file according to your requirements (e.g. Set the required coordinate reference system (CRS)) and start your services with [`docker-compose up`](https://docs.docker.com/compose/reference/up/).  
 Please visit the GitHub pages of the individual images for documentation of all configuration parameters and support.

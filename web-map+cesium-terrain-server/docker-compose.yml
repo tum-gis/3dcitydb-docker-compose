@@ -1,0 +1,31 @@
+# Compose 3DCityDB Web-Map-Client with Memcached CesiumTerrainServer ##########
+###############################################################################
+version: "2.0"
+services:
+  # 3DCityDB Web-Map-Client #####################################################
+  citydb-web-map:
+    image: ${webclImage}
+    ports:
+      - 80:8000
+    volumes:
+      - "${dirData}:/var/www/data"
+  # Cesium Terrain Server #######################################################
+  cesium-terrain-server:
+    image: ${terrainServerImage}
+    ports:
+      - 8080:8000
+    volumes:
+      - "${dirTerrain}:/data/tilesets/terrain"
+      - "${dirLog}:/var/log/terrain-server"
+    links:
+      - memcached:my-memcached
+    environment:
+      - SERVE_STATIC=0
+      - LOG_LEVEL=debug
+      - LOG_REQUESTS=0
+
+  # Memchached ##################################################################
+  memcached:
+    image: memcached
+    # ports:
+    #   - 11211:11211
