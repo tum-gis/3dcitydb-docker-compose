@@ -1,0 +1,24 @@
+# Compose Memcached CesiumTerrainServer #######################################
+###############################################################################
+version: "2.0"
+services:
+  # Cesium Terrain Server #####################################################
+  cesium-terrain-server:
+    image: ${terrainServerImage}
+    ports:
+      - 8080:8000
+    volumes:
+      - "${dirTerrain}:/data/tilesets/terrain"
+      - "${dirLog}:/var/log/terrain-server"
+    links:
+      - memcached:my-memcached
+    environment:
+      - SERVE_STATIC=0
+      - LOG_LEVEL=debug
+      - LOG_REQUESTS=0
+
+  # Memchached ################################################################
+  memcached:
+    image: memcached
+    # ports:
+    #   - 11211:11211
